@@ -13,13 +13,13 @@ function expect(itemOne) {
     (itemOne === itemTwo) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.");
   };
 
-  return { toEqual: toEqual }
-};
+  function toInclude(itenTwo) {
+    (itemOne.includes(itemTwo)) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.")
+  }
 
-// function beforeEach(fnc2) {
-//
-//   return function it(test, fnc) {
-//     fnc2
-//     describe('    ' + test, fnc);
-//   };
-// }
+  function toBeA(itemTwo) {
+    ((typeof itemOne) === itemTwo) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.")
+  }
+
+  return { toEqual: toEqual, toInclude: toInclude }
+};

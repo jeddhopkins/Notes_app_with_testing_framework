@@ -1,12 +1,6 @@
-// let Note = { body: "hello"}
-
 describe('creating notes', function() {
 
-  // beforeEach({
-  //   var note = new Note("hello. this is a really really long note.");
-  // })
   var note = new Note("hello. this is a really really long note.");
-
 
   it('should store a body of text', function() {
     expect(note.body).toEqual("hello. this is a really really long note.");
