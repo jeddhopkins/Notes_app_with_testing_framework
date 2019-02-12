@@ -18,8 +18,7 @@ describe('storing notes', function() {
     notepad.add('Hello note fans, this is more than 20 characters');
     notepad.add('Javascript is really annoying and pedantic');
     var display = notepad.previewDisplay();
-    expect(display[0]).toEqual("Hello note fans, thi");
-    expect(display[1]).toEqual("Javascript is really");
+    expect(display).toEqual("Hello note fans, thi<br> Javascript is really<br>");
   })
 
 })
