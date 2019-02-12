@@ -18,8 +18,8 @@ function expect(itemOne) {
   }
 
   function toBeA(itemTwo) {
-    ((typeof itemOne) === itemTwo) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.")
+    (itemOne instanceof itemTwo) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.")
   }
 
-  return { toEqual: toEqual, toInclude: toInclude }
+  return { toEqual: toEqual, toInclude: toInclude, toBeA: toBeA }
 };
