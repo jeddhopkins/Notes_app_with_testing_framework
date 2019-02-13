@@ -1,49 +1,39 @@
-var textbox = document.getElementById('textbox');
 var submit = document.getElementById('submit');
-var previews = document.getElementById('previews');
 var notepad = new Notepad;
 
-submit.addEventListener('submit', function(event) { buildList(event) })
+submit.addEventListener('submit', function(event) { addNoteToList(event) });
 
 // document.getElementById("test").addEventListener("click", function(event) { loadNote(event) })
 
-function loadNote(event, note) {
-  event.preventDefault()
-  document.getElementById("main").innerHTML =`${note.body}`
-}
 
-// function getText(event) {
-//   event.preventDefault()
-//   if (textbox.value) {
-//     notepad.add(textbox.value);
-//     textbox.value = "";
-//     showPreviews()
-//   };
-// };
-//
-// function showPreviews() {
-//   previews.innerHTML = notepad.previewDisplay()
-// }
+function addNoteToList(event){
+  var counter = notepad.notes.length;
+  event.preventDefault();
+  var textbox = document.getElementById('textbox');
+  var note = addNote(textbox.value);
+  addLinkElem(counter, note);
+  addListener();
+  textbox.value = "";
 
+  function addNote(text){
+    if (text) {
+      note = notepad.add(text)};
 
+    return note;
+  };
 
-var counter = 1
+  function addLinkElem(num, note){
+    var previews = document.getElementById('previews');
+    previews.insertAdjacentHTML('beforeend', `<a id=${num} href = "">${note.preview()}</a><br>`);
+  };
 
-function buildList(event){
-  event.preventDefault()
-  note = addNote(textbox.value)
-  previews.insertAdjacentHTML('beforeend', (addLinkElem(counter, note)));
-  document.getElementById(counter).addEventListener('click', function(event){loadNote(event, note)});
-  counter ++;
+  function addListener() {
+    document.getElementById(counter).addEventListener('click', function(event){loadNote(event)});
+
+    function loadNote(event) {
+      event.preventDefault();
+      main = document.getElementById("main")
+      main.innerHTML =`${note.body}`;
+    };
+  };
 };
-
-function addNote(text){
-   if (text) {
-    note = notepad.add(text)}
-
-    return note
-}
-
-function addLinkElem(num,note){
-  return(`<a id=${num} href = "">${note.preview()}</a><br>`)
-}

@@ -20,5 +20,4 @@ describe('storing notes', function() {
     var display = notepad.previewDisplay();
     expect(display).toEqual("Hello note fans, thi<br> Javascript is really<br>");
   })
-
 })
