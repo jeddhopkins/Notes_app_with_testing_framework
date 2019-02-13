@@ -1,7 +1,8 @@
 var submit = document.getElementById('submit');
 var notepad = new Notepad;
 var back = document.getElementById('back');
-
+var shownote = document.getElementById("shownote")
+var main = document.getElementById("main");
 submit.addEventListener('submit', function(event) { addNoteToList(event) });
 back.addEventListener('click', backToHome)
 // document.getElementById("test").addEventListener("click", function(event) { loadNote(event) })
@@ -19,7 +20,6 @@ function addNoteToList(event){
   function addNote(text){
     if (text) {
       note = notepad.add(text)};
-
     return note;
   };
 
@@ -35,26 +35,21 @@ function addNoteToList(event){
       event.preventDefault();
       switchVisibility()
       showNotebody();
-    };
 
-    function showNotebody() {
-      notebody = document.getElementById("notebody")
-      notebody.innerHTML = `${note.body}`;
-    };
+      function showNotebody() {
+        notebody = document.getElementById("notebody")
+        notebody.innerHTML = `${note.body}`;
+      };
 
-    function switchVisibility() {
-      shownote = document.getElementById("shownote")
-      shownote.className = "visible";
-      main = document.getElementById("main");
-      main.className = "hidden";
+      function switchVisibility() {
+        shownote.className = "visible";
+        main.className = "hidden";
+      };
     };
   };
 };
 
 function backToHome() {
-  shownote = document.getElementById("shownote");
-  main = document.getElementById("main");
   main.className = "visible";
   shownote.className = "hidden";
-
 }

@@ -13,7 +13,7 @@ function expect(itemOne) {
     (itemOne === itemTwo) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.");
   };
 
-  function toInclude(itenTwo) {
+  function toInclude(itemTwo) {
     (itemOne.includes(itemTwo)) ? console.log("        Passed - Yay!") : console.log("        Fail. You loser.")
   }
 
